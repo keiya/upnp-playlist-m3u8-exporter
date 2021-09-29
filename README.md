@@ -48,6 +48,7 @@ If the UPnP Server you are connecting to is a Foobar 2000, configure the Foobar 
 - Open Preferences > Tools > UPnP > Server > Streaming Profiles
 - Select `foobar2000` in `Select profile to edit`
 - Click `New`
+    - (Hint: You can copy the foobar2000 profile by loading it and then clicking New. Or use any other profile as a base.)
 - Enter `python-requests` for "contain"
 - For the other values, set them appropriately for the device that will play the playlist.
 - The value set here relates to the format that will be exported.
