@@ -4,6 +4,7 @@ pp = pprint.PrettyPrinter(indent=4)
 import xml.etree.ElementTree as ET
 import sys
 
+requested_count = 100000
 
 if len(sys.argv) < 3:
   print("python3 upnp.py http(s)://host:port playlist.m3u8")
@@ -44,7 +45,7 @@ def parse_songs(xml):
 #    +--- Playlist n : ObjectID = 0/0/n
 # +--- Media Library : ObjectID = 0/1 
 # +--- Playback Stream : ObjectID = 0/2
-browsed_playlists = s[0].actions[0](ObjectID="0/0", BrowseFlag="BrowseDirectChildren", Filter="*", StartingIndex=0, RequestedCount=100, SortCriteria="")
+browsed_playlists = s[0].actions[0](ObjectID="0/0", BrowseFlag="BrowseDirectChildren", Filter="*", StartingIndex=0, RequestedCount=requested_count, SortCriteria="")
 playlists = parse_playlists(browsed_playlists['Result'])
 
 print("Enter the playlist ID you want to generate: [e.g. 0/0/1 ]")
@@ -52,7 +53,7 @@ for p in playlists:
   print("{} = {}".format(p['id'], p['title']))
 id = input()
 
-browsed_playlist = s[0].actions[0](ObjectID=id, BrowseFlag="BrowseDirectChildren", Filter="*", StartingIndex=0, RequestedCount=100, SortCriteria="")
+browsed_playlist = s[0].actions[0](ObjectID=id, BrowseFlag="BrowseDirectChildren", Filter="*", StartingIndex=0, RequestedCount=requested_count, SortCriteria="")
 songs = parse_songs(browsed_playlist['Result'])
 
 #pp.pprint(songs)

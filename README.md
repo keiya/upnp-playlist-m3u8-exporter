@@ -42,6 +42,8 @@ http://192.168.0.206:56923/content/1266a279c7c872ade4471cce6416cbfc.flac
 http://192.168.0.206:56923/content/20eeea5fde4981ab4c9c528454e8a4f9.flac
 ```
 
+Exporting a large number of songs can take a long time.
+
 ## Recommended Profile Settings for Foobar2000's foo_upnp
 If the UPnP Server you are connecting to is a Foobar 2000, configure the Foobar 2000 in this way.
 
